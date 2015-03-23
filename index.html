@@ -15,38 +15,38 @@
         <a href='index.html' id='discoverLink'><img id='discoverImage' src='images/discover.png'></a>
         <img src='images/navBarLongImage.png'>
         <input id='search' placeholder='Search Twittler' type='text'></input>
-        <img src='images/'
+        <img class='me' id='navMe' src='images/me.jpg'>
+        <img id='tweetButton' src='images/tweetButton.png'>
       </ul>
 
     </div>
   </nav>
 
   <div class='content'>
+    <div id='tweetBox'>
+      <img class='me' id='tweetMe' src='images/me.jpg'> 
+      <input id='tweetField' placeholder="What's happening?" type='text'>
+    </div>
+    <div id='tweets'>
+    </div>
     <script>
 
       $(document).ready(function(){
       
-      //navigation bar at top
+      //expanding tweet tweet
+      $('#tweetField').focus(function(){
+        $('#tweetBox').animate({height:'93px'}, 0);
+        $('#tweetBox').append('<img id="tweetSubmit" src="images/tweetButton.png">');
+      });
+      $('#tweetField').blur(function(){
+       $('#tweetBox').animate({height: '50px'}, 0)
+       $('#tweetSubmit').remove();
+      });
 
-       // Notifications
-       $('#notificationsLink').mouseenter(function(){
-        $('#notificationsImage').remove();
-        $('#notificationsLink').append('<img id="notificationsImage" src="images/notificationsHover.png">');
-       });
-       $('#notificationsLink').mouseleave(function(){
-        $('#notificationsImage').remove();
-        $('#notificationsLink').append('<img id="notificationsImage" src="images/notifications.png">');
-       });
+ 
 
-       // Messages
-       $('#messagesLink').mouseenter(function(){
-        $('#messagesImage').remove();
-        $('#messagesLink').append('<img id="messagesImage" src="images/messagesHover.png">');
-       });
-       $('#notificationsLink').mouseleave(function(){
-        $('#notificationsImage').remove();
-        $('#notificationsLink').append('<img id="notificationsImage" src="images/notifications.png">');
-       });
+       
+
 
        var count = 0;
       
@@ -64,9 +64,9 @@
           var minute  = date.getMinutes();
           var seconds = date.getSeconds(); 
           
-
+          
           $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds);
-          $tweet.appendTo($body);
+           $tweet.appendTo('#tweets');
           count++;
         }
         console.log(streams.home)
@@ -80,6 +80,5 @@
 
     </script>
     </div> <!-- end main div container -->
-    <button id='refresh'><p>Refresh</p></button>
   </body>
 </html>

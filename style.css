@@ -53,6 +53,79 @@ ul {
 	background-color: white;
 } 
 
-#notificationsImage:hover {
-	background-image: url(images/notificationsHover.png);
+.me {
+	border-radius: 4px;
+}
+
+#navMe {
+	float: right;
+	margin-top: -37px;
+	margin-right: 150px;
+}
+
+#tweetButton {
+	float: right;
+	margin-top: -37px;
+	margin-right: 25px;
+}
+
+#tweetBox {
+	background-color: #e6f2f7;
+	width: 580px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 55px;
+	border-radius: 5px;
+	border: 1px solid #bfe0ec;
+}
+
+#tweetMe {
+	height: 36px;
+	margin-top: 5px;
+	margin-left: 30px;
+}
+
+#tweetField {
+	float: right;
+	display: inline;
+	width: 440px;
+	height: 23px;
+	padding: 5px;
+	padding-right: 40px;
+	outline: none;
+	border: 2px solid #c0e1ed;
+	border-radius: 5px;
+	background-color: #f5f8fa;
+	margin-top: 7px;
+	margin-right: 10px;
+	background-image: url(images/camera.png);
+	background-repeat: no-repeat;
+	background-position: 453px 8px;
+}
+
+#tweetField::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #0084b4;
+}
+#tweetField:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #0084b4;
+   opacity:  1;
+}
+#tweetField::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #0084b4;
+   opacity:  1;
+}
+#tweetField:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #0084b4;
+}
+
+#tweets {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#tweetSubmit {
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
 }
