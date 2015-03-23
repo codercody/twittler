@@ -1,0 +1,58 @@
+body { 
+  	background-image: url(images/background.png);
+    background-position: left 40px;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-repeat: no-repeat;
+	background-color: #C0DEED;
+}
+
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 46px;
+  background-color: white;
+}
+
+/* The element at the top of the page right after the fixed navigation bar
+   MUST have sufficient top margin or else it will be covered by the bar */
+.content {
+  margin-top: 20px;
+}
+
+.navBarItems {
+	margin-top: 0px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#search {
+	display: block;
+	width: 180px;
+	height: 23px;
+	padding: 5px;
+	padding-right: 40px;
+	outline: none;
+	border: 2px solid #dee6eb;
+	border-radius: 50px;
+	background-color: #f5f8fa;
+	margin-top: -45px;
+	margin-left: 790px;
+	background-image: url(images/magnifyingGlass.png);
+	background-repeat: no-repeat;
+	background-position: 200px 8px
+}
+
+#search:focus {
+	background-color: white;
+} 
+
+#notificationsImage:hover {
+	background-image: url(images/notificationsHover.png);
+}
