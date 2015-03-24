@@ -16,7 +16,7 @@
         <img src='images/navBarLongImage.png'>
         <input id='search' placeholder='Search Twittler' type='text'></input>
         <img class='me' id='navMe' src='images/me.jpg'>
-        <img id='tweetButton' src='images/tweetButton.png'>
+        <img class="submit" id='tweetButton' src='images/tweetButton.png'>
       </ul>
 
     </div>
@@ -26,32 +26,31 @@
     <div id='tweetBox'>
       <img class='me' id='tweetMe' src='images/me.jpg'> 
       <input id='tweetField' placeholder="What's happening?" type='text'>
+      <img class="submit" id="tweetSubmit" src="images/tweetButton.png">
     </div>
     <div id='tweets'>
     </div>
     <script>
+        var visitor = prompt('Enter a username: ');
+        streams.users[visitor] = [];
 
       $(document).ready(function(){
+        var input = '';
+        var message = '';
       
-      //expanding tweet tweet
-      $('#tweetField').focus(function(){
-        $('#tweetBox').animate({height:'93px'}, 0);
-        $('#tweetBox').append('<img id="tweetSubmit" src="images/tweetButton.png">');
-      });
-      $('#tweetField').blur(function(){
-       $('#tweetBox').animate({height: '50px'}, 0)
-       $('#tweetSubmit').remove();
-      });
-
- 
-
+      streams.users.shawndrost.realName = 'Shawn Drost';
+      streams.users.mracus.realName = 'Marcus Phillips';
+      streams.users.sharksforcheap.realName = 'Anthony Phillips';
+      streams.users.douglascalhoun.realName = 'Douglas Calhoun';
        
 
 
        var count = 0;
+
+
       
       function tweets(){
-        var $body = $('body');
+
         while(count != streams.home.length - 1){
           var tweet = streams.home[count];
           var $tweet = $('<div></div>');
@@ -62,15 +61,56 @@
           var day     = date.getDate();
           var hour    = date.getHours();
           var minute  = date.getMinutes();
-          var seconds = date.getSeconds(); 
+          var seconds = date.getSeconds();
+
+          var name = '';
+          var profileImage = '';
           
+          if(tweet.user == 'shawndrost') { 
+            name = streams.users.shawndrost.realName;
+            profileImage = '<img class="profileImages" src="images/shawndrost.jpg">'; 
+          } else if(tweet.user == 'mracus') { 
+            name = streams.users.mracus.realName;
+            profileImage = '<img class="profileImages" src="images/mracus.jpg">'; 
+          } else if(tweet.user == 'sharksforcheap') {
+            name = streams.users.sharksforcheap.realName; 
+            profileImage = '<img class="profileImages" src="images/sharksforcheap.jpg">';
+          } else if(tweet.user == 'douglascalhoun') {
+            name = streams.users.douglascalhoun.realName;
+            profileImage = '<img class="profileImages" src="images/douglascalhoun.jpg">'; 
+          } 
+
+          $('#tweets').append('<div class="tweetClass">' + profileImage + '<strong><a class="usernameLinks" href="index.html">' + name + '</a></strong>@' + tweet.user + ': ' + tweet.message + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds + '</div>');
           
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds);
-           $tweet.appendTo('#tweets');
           count++;
         }
         console.log(streams.home)
+
+
       }
+
+    
+
+
+      $('#tweetField').focus(function(){
+        $('#tweetBox').animate({height:'93px'}, 0);
+        $('#tweetSubmit').show();
+      });
+      $('.submit').on('click', function(){
+        $('#tweetBox').animate({height: '50px'}, 0);
+        $('#tweetSubmit').hide();
+        var timestamp = Math.floor(Date.now() / 1000);
+          var date = new Date(timestamp * 1000);
+          var year    = date.getFullYear();
+          var month   = date.getMonth();
+          var day     = date.getDate();
+          var hour    = date.getHours();
+          var minute  = date.getMinutes();
+          var seconds = date.getSeconds();
+        input = $('#tweetField').val();
+        message = '<img class="profileImages" src="images/me50x50.jpg"><strong><a class="usernameLinks" href="index.html">Cody Imposter</a></strong>@' + visitor + ': ' + input + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds;
+        writeTweet(message);
+      });
      
       setInterval(tweets, 1500);
       
