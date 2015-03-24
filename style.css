@@ -7,6 +7,10 @@ body {
 	background-color: #C0DEED;
 }
 
+a:visited {
+	color: black;
+}
+
 .navBar {
   position: fixed;
   top: 0;
@@ -120,12 +124,33 @@ ul {
 }
 
 #tweets {
+	width: 580px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
 }
 
 #tweetSubmit {
 	float: right;
 	margin-right: 10px;
 	margin-top: 5px;
+	display: none;
+}
+
+.tweetClass {
+	background-color: white;
+	border: 1px solid #e1e8ed;
+}
+
+.tweetClass a {
+	text-decoration: none;
+}
+
+.tweetClass a:hover {
+	text-decoration: underline;
+	color: blue;
+}
+
+.profileImages {
+	vertical-align: middle;
 }
