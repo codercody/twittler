@@ -98,7 +98,7 @@
         $('.user').hide();
       });
 
-      $('#tweets').on('click', '.user> strong > a', function(){
+      $('#tweets').on('click', '.user > strong > a', function(){
         $('.tweetClass').show();
         $('.shawndrost').hide();
         $('.sharksforcheap').hide();
@@ -138,8 +138,8 @@
           var minute  = date.getMinutes();
           var seconds = date.getSeconds();
         input = $('#tweetField').val();
-        message = '<div class="user"><img class="profileImages" src="images/me50x50.jpg"><strong><a class="usernameLinks" href="#">Cody Imposter</a></strong>@' + visitor + ': ' + input + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds + '</div>';
-        writeTweet(message);
+        $('#tweets').prepend('<div class="user tweetClass"><img class="profileImages" src="images/me50x50.jpg"><strong><a class="usernameLinks" href="#">Cody Imposter</a></strong>@' + visitor + ': ' + input + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds + '</div>');
+        
       });
      
       setInterval(tweets, 1500);
