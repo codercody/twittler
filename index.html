@@ -72,12 +72,36 @@
             name = streams.users.douglascalhoun.realName;
             profileImage = '<img class="profileImages" src="images/douglascalhoun.jpg">'; 
           } 
-          $('#tweets').prepend('<div class="tweetClass">' + profileImage + '<strong><a class="usernameLinks" href="index.html">' + name + '</a></strong>@' + tweet.user + ': ' + tweet.message + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds + '</div>');
+          $('#tweets').prepend('<div class="tweetClass ' + tweet.user + '">' + profileImage + '<strong><a class="usernameLinks" href="#">' + name + '</a></strong>@' + tweet.user + ': ' + tweet.message + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds + '</div>');
           
           count++;
         }
         console.log(streams.home)
       }
+
+      $('#tweets').on('click', '.shawndrost > strong > a', function(){
+        $('.mracus').hide();
+        $('.sharksforcheap').hide();
+        $('.douglascalhoun').hide();
+      });
+
+      $('#tweets').on('click', '.mracus > strong > a', function(){
+        $('.shawndrost').hide();
+        $('.sharksforcheap').hide();
+        $('.douglascalhoun').hide();
+      });
+
+      $('#tweets').on('click', '.sharksforcheap > strong > a', function(){
+        $('.mracus').hide();
+        $('.shawndrost').hide();
+        $('.douglascalhoun').hide();
+      });
+
+      $('#tweets').on('click', '.douglascalhoun > strong > a', function(){
+        $('.mracus').hide();
+        $('.sharksforcheap').hide();
+        $('.shawndrost').hide();
+      });
     
       $('#tweetField').focus(function(){
         $('#tweetBox').animate({height:'93px'}, 0);
