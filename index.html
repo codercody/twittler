@@ -32,6 +32,9 @@
     </div>
     <script>
         var visitor = prompt('Enter a username: ');
+        if(visitor === undefined || visitor === null){
+          visitor = 'Skeetface';
+        }
         streams.users[visitor] = [];
       $(document).ready(function(){
         var input = '';
@@ -80,27 +83,43 @@
       }
 
       $('#tweets').on('click', '.shawndrost > strong > a', function(){
+        $('.tweetClass').show();
         $('.mracus').hide();
         $('.sharksforcheap').hide();
         $('.douglascalhoun').hide();
+        $('.user').hide();
       });
 
       $('#tweets').on('click', '.mracus > strong > a', function(){
+        $('.tweetClass').show();
         $('.shawndrost').hide();
         $('.sharksforcheap').hide();
         $('.douglascalhoun').hide();
+        $('.user').hide();
+      });
+
+      $('#tweets').on('click', '.user> strong > a', function(){
+        $('.tweetClass').show();
+        $('.shawndrost').hide();
+        $('.sharksforcheap').hide();
+        $('.douglascalhoun').hide();
+        $('.mracus').hide();
       });
 
       $('#tweets').on('click', '.sharksforcheap > strong > a', function(){
+        $('.tweetClass').show();
         $('.mracus').hide();
         $('.shawndrost').hide();
         $('.douglascalhoun').hide();
+        $('.user').hide();
       });
 
       $('#tweets').on('click', '.douglascalhoun > strong > a', function(){
+        $('.tweetClass').show();
         $('.mracus').hide();
         $('.sharksforcheap').hide();
         $('.shawndrost').hide();
+        $('.user').hide();
       });
     
       $('#tweetField').focus(function(){
@@ -119,7 +138,7 @@
           var minute  = date.getMinutes();
           var seconds = date.getSeconds();
         input = $('#tweetField').val();
-        message = '<img class="profileImages" src="images/me50x50.jpg"><strong><a class="usernameLinks" href="index.html">Cody Imposter</a></strong>@' + visitor + ': ' + input + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds;
+        message = '<div class="user"><img class="profileImages" src="images/me50x50.jpg"><strong><a class="usernameLinks" href="#">Cody Imposter</a></strong>@' + visitor + ': ' + input + ' ' + year + '-' + (month + 1) + '-' + day + '-' + hour + ':' + minute + ':' + seconds + '</div>';
         writeTweet(message);
       });
      
